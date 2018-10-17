@@ -1,0 +1,7 @@
+{
+  "name": "BankStatus",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}
