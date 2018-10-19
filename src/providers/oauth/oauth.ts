@@ -14,15 +14,25 @@ export class OauthProvider {
     console.log('Hello OauthProvider Provider');
   }
   login(loginData) {
-    loginData["client_id"]  =            "password";
+    loginData["request_type"]  =            "password";
     loginData["client_id"] = "d0b48415-ad62-4791-8e7e-2808fdca8103";
     loginData["client_secret"] = "dE1vD2pY3lO6xN2dX4iL0qU5jQ0iA0uF3aI8qY5iD2eG0kV6oT";
+
+    this.apiUrl = "https://sbapi.bancolombia.com/hackathon/v1/security/oauth-otp/oauth2/authorize?client_id=52b793cf-a2fb-4c52-801d-8dbcf7512d6b&scope=Customer-detail:read:user&response_type=code&redirect_uri=https://localhost&username=CC-100001&password=12345";
     return new Promise(resolve => {
+      this.http.get(this.apiUrl ).subscribe(response  => {
+        console.log("here");
+        console.log(response );
+      }, err => {
+        console.log("err");
+        console.log(err );
+      });
+    /*return new Promise(resolve => {
       this.http.post(this.apiUrl,loginData ).subscribe(response  => {
         console.log("here");
         console.log(response );
       }, err => {
-      });
+      });*/
     });
   }
 

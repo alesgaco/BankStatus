@@ -1,10 +1,9 @@
 <!--
-  Generated template for the HomePage page.
+  Generated template for the ProfilePage page.
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-
 
 <ion-menu [content]="mycontent">
     <ion-content>
@@ -12,7 +11,7 @@
             <ion-list-header>
                 Menu
             </ion-list-header>
-  
+
           <ion-item (click)="goToInicio()">
               Inicio      
           </ion-item>
@@ -30,29 +29,29 @@
           </ion-item>
          </ion-list>
       </ion-content>
-</ion-menu>
-<ion-nav #mycontent [root]="Home"></ion-nav>
-
-<ion-header>
-  <ion-navbar>
-
-    <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
-    <ion-title>Bienvenido</ion-title>
-  </ion-navbar>
-
+  </ion-menu>
+  <ion-nav #mycontent [root]="Profile"></ion-nav>
   
-
-
-</ion-header>
-
-
-<ion-content padding>
-  <ion-card>
-    <ion-card-header>
-      Indice de aprobación
-    </ion-card-header>
-    <ion-card-content>
-      <canvas #doughnutCanvas></canvas>
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+  <ion-header>
+    <ion-navbar>
+  
+      <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
+      <ion-title>Perfil</ion-title>
+    </ion-navbar>
+  
+    
+  
+  
+  </ion-header>
+  
+  
+  <ion-content padding>
+    <ion-card>
+      <ion-card-header>
+        Indice de aprobación
+      </ion-card-header>
+      <ion-card-content>
+        <canvas #doughnutCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>

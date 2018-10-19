@@ -22,24 +22,52 @@ export class HomePage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
+  goToInicio(){
+    this.navCtrl.push('HomePage');
+  }
+goToCredit(){
+  this.navCtrl.push('CreditPage');
+}
+goToProfile(){
+  this.navCtrl.push('ProfilePage');
+}
+goToReadQR(){
+  this.navCtrl.push('QrreaderPage');
+}
+goToLogin(){
+  //this.navCtrl.push('LoginPage');
+}
+
   ionViewDidLoad() {
     this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
 
-      type: 'doughnut',
+      type: 'pie',
       data: {
-        labels: ["Si", "No"],
+        labels: ["no viable", "poco viable","viable","muy viable"],
         datasets: [{
-          data: [90 , 10],
+          data: [25 , 25 ,25,25],
           backgroundColor: [
+            'rgba(255, 51, 1)',
+            'rgba(255, 153, 0, 1)',
+            'rgba(255, 255, 0, 1)',
             'rgba(124,252,0, 1)',
-            'rgba(255, 255, 255, 0)',
-          
           ],
           hoverBackgroundColor: [
+            "#FF3300",
+            "#ff9900", 
+            "#FFFF00",
             "#7CFC00",
-            "#FFFFFF",
           ]
-        }]
+        },
+        {
+          data: [90,8,10],
+          backgroundColor: [
+            'rgba(255, 255,255, 1)',
+            'rgba(0, 0, 0 , 1)',
+            'rgba(255, 255,255, 1)',
+          ]
+        },
+      ]
       },
       options: {
         circumference: Math.PI,

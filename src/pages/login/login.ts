@@ -25,18 +25,29 @@ export class LoginPage {
       email: ['', Validators.required],
       password: ['', Validators.required]
     });
-    this.loginUser(this.login);
   }
 
 loginUser(user){
   var form = [];
   form["username"] = "CC-" + this.login.value.email;
   form["password"] =this.login.value.password ;
+  this.navCtrl.setRoot('HomePage');
   this.Oauth.login(form).then(data => {
     this.token = data;
     console.log(this.token);
   });
 }
+
+goToSignup(){
+  this.navCtrl.push('SignupPage');
+}
+
+
+goToResetPassword(){
+  this.navCtrl.push('ResetPasswordPage');
+}
+
+
   ionViewDidLoad() {
     console.log('ionViewDidLoad LoginPage');
   }
