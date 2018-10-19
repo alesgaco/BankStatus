@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-
+import { BarcodeScanner, BarcodeScannerOptions  } from '@ionic-native/barcode-scanner';
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import QRCode from 'qrcode';
 /**
  * Generated class for the QrreaderPage page.
  *
@@ -14,9 +16,41 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'qrreader.html',
 })
 export class QrreaderPage {
+  qrData = null;
+  createdCode = null;
+  scannedCode = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  code = 'Monto del credito';
+  generated = '';
+  constructor(public navCtrl: NavController, public navParams: NavParams, private barcodeScanner: BarcodeScanner) {
   }
+
+  createCode() {
+    this.createdCode = this.qrData;
+  }
+ 
+  scanCode() {
+    this.barcodeScanner.scan().then(barcodeData => {
+      this.scannedCode = barcodeData.text;
+    }, (err) => {
+        console.log('Error: ', err);
+    });
+  }
+
+
+  displayQrCode() {
+    return this.generated !== '';
+  }
+
+
+  process() {
+    const qrcode = QRCode;
+    const self = this;
+    qrcode.toDataURL(self.code, { errorCorrectionLevel: 'H' }, function (err, url) {
+      self.generated = url;
+    })
+  }
+
 
   goToInicio(){
     this.navCtrl.setRoot('HomePage');

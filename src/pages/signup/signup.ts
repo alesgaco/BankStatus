@@ -27,7 +27,7 @@ export class SignupPage {
   }
 
   signup(){
-    this.navCtrl.push('HomePage');
+    this.navCtrl.setRoot('HomePage');
   }
 
  return(){

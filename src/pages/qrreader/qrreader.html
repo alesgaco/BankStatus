@@ -37,8 +37,23 @@
       <button ion-button menuToggle><ion-icon name="menu"></ion-icon></button>
       <ion-title>Leer QR</ion-title>
     </ion-navbar>
-  
+  </ion-header>
 
-<ion-content padding>
+  <ion-content padding>
 
-</ion-content>
+      
+      <ion-item>
+          <ion-input [(ngModel)]="code" type="text" placeholder="Enter code here"></ion-input>
+      </ion-item>
+      <button ion-button block (click)="process();">Generar QR</button>
+      <button ion-button full icon-left (click)="scanCode()" color="secondary"><ion-icon name="qr-scanner"></ion-icon>Scanear QR</button>
+     
+      
+      <img *ngIf="displayQrCode()" [src]="generated" />
+
+      <ion-card *ngIf="scannedCode">
+        <ion-card-content>
+          Result from Scan: {{ scannedCode }}
+        </ion-card-content>
+      </ion-card> 
+    </ion-content>

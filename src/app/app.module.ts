@@ -9,7 +9,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MyApp } from './app.component';
 import { LoginPage } from '../pages/login/login';
 import { OauthProvider } from '../providers/oauth/oauth';
-
+import { NgxQRCodeModule } from 'ngx-qrcode2';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [
     MyApp,
@@ -18,7 +20,9 @@ import { OauthProvider } from '../providers/oauth/oauth';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpClientModule 
+    IonicStorageModule.forRoot(),
+    HttpClientModule,
+    NgxQRCodeModule 
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -27,9 +31,9 @@ import { OauthProvider } from '../providers/oauth/oauth';
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+    SplashScreen, BarcodeScanner,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    OauthProvider
+    OauthProvider, NgxQRCodeModule
   ]
 })
 export class AppModule {}

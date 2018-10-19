@@ -33,7 +33,9 @@
           <button ion-button block type="submit" [disabled]="!login.valid">Ingresar</button>
         </div>
       </form>
-
+      <div *ngIf="err">
+        {{ err }}
+      </div> 
       <div text-center>
         <a ion-button block clear (click)="goToSignup()">
           Nueva cuenta
