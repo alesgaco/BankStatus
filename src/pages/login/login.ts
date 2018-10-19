@@ -41,9 +41,9 @@ loginUser(){
     'scope': 'Customer-detail:read:user'
   };
   console.log('grant_type=password&username='+ this.login.value.email+ '&password='+ this.login.value.password + '&scope=Customer-detail:read:user');
-  let dataApi = 'grant_type=password&username='+ this.login.value.email+ '&password='+ this.login.value.password + '&scope=Customer-detail:read:user'
+  let dataApi = 'grant_type=password&scope=Customer-detail:read:user&username='+ this.login.value.email+ '&password='+ this.login.value.password
   this.http.post("https://sbapi.bancolombia.com/hackathon/v1/security/oauth-otp/oauth2/token"
-    ,dataApi//"grant_type=password&username=CC-100001&password=12345&scope=Customer-detail:read:user" // 
+    ,dataApi  
     , 
     {
       headers: new HttpHeaders({
